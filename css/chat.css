@@ -6,7 +6,7 @@
     color: #fff;
     line-height: 64px;
 }
-.conversation-tilte {
+.conversation-title {
     height: 64px;
     text-align: center;
     line-height: 64px;
@@ -84,7 +84,6 @@
     width: 15%;
     height: 100%;
     border-right: 1px solid #dbdbdb;
-    
 }
 .chat-container .aside-left .create-conversation {
     text-align: center;
@@ -94,6 +93,21 @@
 }
 .chat-container .aside-left .list-conversations .conversation {
     padding: 10px;
+    position: relative;
+}
+.chat-container .notification {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    top: 15px;
+    right: 12px;
+    background-color: #007cfd;
+    display: none;
+}
+.chat-container .aside-left .list-conversations{
+    overflow: auto;
+    height: calc(100vh - 128px);
 }
 .chat-container .aside-left .list-conversations .conversation.current {
     background: #dbdbdb;

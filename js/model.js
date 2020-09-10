@@ -9,7 +9,6 @@ model.register = async (data) => {
             displayName: data.firstName + ' ' + data.lastName,
         })
         firebase.auth().currentUser.sendEmailVerification()
-        alert('Đăng ký tài khoản thành công, hãy xác nhận email')
         view.setActiveScreen('loginPage')
     } catch (err) {
         alert(err.message)
@@ -52,17 +51,21 @@ model.listenConversationChange = () => {
                     if (docData.id === model.currentConversation.id) {
                         if (model.currentConversation.users.length !== docData.users.length) {
                             view.addUser(docData.users[docData.users.length - 1])
+                            view.addUserInConversation(docData.users.length)
                         } else {
+                            model.currentConversation = docData
                             view.addMessage(model.currentConversation.messages[model.currentConversation.messages.length - 1])
                             view.scrollToEnd()
                         }
-                        console.log(docData)
                         model.currentConversation = docData
                     }
                     for (let i = 0; i < model.conversations.length; i++) {
                         if (model.conversations[i].id === docData.id) {
                             model.conversations[i] = docData
                         }
+                    }
+                    if(docData.messages[docData.messages.length-1].owner !== model.currentUser.email) {
+                        view.showNotification(docData.id)
                     }
                 }
                 if (oneChange.type === 'added') {

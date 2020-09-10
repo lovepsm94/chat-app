@@ -62,7 +62,7 @@ component.chatPage = `
         <div class="list-conversations"></div>
     </div>
     <div class="conversation-detail">
-        <div class="conversation-tilte"></div>
+        <div class="conversation-title"></div>
         <div class="list-message">
         </div>
         <form id="send-message-form">
