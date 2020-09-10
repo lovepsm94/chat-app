@@ -1,0 +1,38 @@
+.login-container {
+    height: 100vh;
+    background-image: url(../img/117445513_2925610227660630_2601144072236250834_o.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+}
+#login-form {
+    width: 30vw;
+    background-color: #fff;
+    padding: 50px 30px;
+}
+.login-header {
+    font-size: 40px;
+    color: #535353;
+    text-align: center;
+    font-weight: 600;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+}
+.input-wrapper {
+    margin-bottom: 10px;
+}
+.input-wrapper input {
+    padding: 10px 20px;
+    border-width: 1px solid #dbdbdb;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+}
+.form-action {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.chat-container {
+    height: 100vh;
+}

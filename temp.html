@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bobo chat</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="./css/chat.css">
+    <script src="https://kit.fontawesome.com/04f9739ba5.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="create-conversation-wrapper">
+        <div class="header">Bobo Chat</div>
+    </div>
+    <form id="create-conversation-form" style="width: 60%;margin: auto;margin-top: 20px;">
+        <h4>Create a new conversation</h4>
+        <div class="input-wrapper">
+            <input type="text" placeholder="Conversation title" name="title">
+            <div class="error" id="create-conversation-title-error"></div>
+        </div>
+        <div class="input-wrapper">
+            <input type="text" placeholder="Friend email" name="email">
+            <div class="error" id="create-conversation-email-error"></div>
+        </div>
+        <button class="btn">Save</button>
+        <button class="btn btn-bg-light" type="button" id="redirect-to-chat">Cancel</button>
+    </form>
+</body>
+</html>
