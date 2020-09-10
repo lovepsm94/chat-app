@@ -84,6 +84,7 @@
     width: 15%;
     height: 100%;
     border-right: 1px solid #dbdbdb;
+    font-size: medium;
 }
 .chat-container .aside-left .create-conversation {
     text-align: center;
@@ -120,7 +121,15 @@
 .chat-container .aside-right .user-email {
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: medium;
 }
 .conversation-detail {
     width: 70%;
+}
+.left-conversation-title {
+    font-size: large;
+}
+.num-of-user {
+    font-size: medium;
+    font-style: italic;
 }

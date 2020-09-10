@@ -57,7 +57,7 @@ component.chatPage = `
 <div class="main">
     <div class="aside-left">
         <div class="create-conversation">
-            <button class="btn cursor-pointer" id="create-conversation">+ New conversation</button>
+            <button class="btn cursor-pointer" id="create-conversation">+New conversation</button>
         </div>
         <div class="list-conversations"></div>
     </div>
