@@ -50,9 +50,14 @@ model.listenConversationChange = () => {
                 const docData = getOneDocument(oneChange.doc)
                 if (oneChange.type === 'modified') {
                     if (docData.id === model.currentConversation.id) {
+                        if (model.currentConversation.users.length !== docData.users.length) {
+                            view.addUser(docData.users[docData.users.length - 1])
+                        } else {
+                            view.addMessage(model.currentConversation.messages[model.currentConversation.messages.length - 1])
+                            view.scrollToEnd()
+                        }
+                        console.log(docData)
                         model.currentConversation = docData
-                        view.addMessage(model.currentConversation.messages[model.currentConversation.messages.length - 1])
-                        view.scrollToEnd()
                     }
                     for (let i = 0; i < model.conversations.length; i++) {
                         if (model.conversations[i].id === docData.id) {
@@ -69,7 +74,7 @@ model.listenConversationChange = () => {
             }
         })
 }
-model.createConversation = ({title, email}) => {
+model.createConversation = ({ title, email }) => {
     const dataToCreate = {
         title,
         createdAt: new Date().toISOString(),
@@ -78,4 +83,10 @@ model.createConversation = ({title, email}) => {
     }
     firebase.firestore().collection('conversations').add(dataToCreate)
     view.setActiveScreen('chatPage', true)
+}
+model.addUser = (email) => {
+    const dataToUpdate = {
+        users: firebase.firestore.FieldValue.arrayUnion(email)
+    }
+    firebase.firestore().collection('conversations').doc(model.currentConversation.id).update(dataToUpdate)
 }

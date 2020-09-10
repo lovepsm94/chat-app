@@ -24,16 +24,24 @@ controller.login = (data) => {
 }
 controller.createConversation = ({title, email}) => {
     if(title.trim() === '') {
-        view.setErrorMessage('create-conversatin-title-error', 'Please input title')
+        view.setErrorMessage('create-conversation-title-error', 'Please input title')
     } else {
-        view.setErrorMessage('create-conversatin-title-error', '')
+        view.setErrorMessage('create-conversation-title-error', '')
     }
-    if(email.trim() === '') {
-        view.setErrorMessage('create-conversatin-email-error', 'Please input email')
+    if(validateEmail(email) === false) {
+        view.setErrorMessage('create-conversation-email-error', 'Please input an email')
     } else {
-        view.setErrorMessage('create-conversatin-email-error', '')
+        view.setErrorMessage('create-conversation-email-error', '')
     }
-    if(title.trim() !== '' && email.trim() !== '') {
+    if(title.trim() !== '' && validateEmail(email)) {
         model.createConversation({title, email})
+    }
+}
+controller.addUser = (email) => {
+    if (validateEmail(email) === false) {
+        view.setErrorMessage('email-error', 'Please input an email')
+    } else {
+        view.setErrorMessage('email-error', '')
+        model.addUser(email)
     }
 }

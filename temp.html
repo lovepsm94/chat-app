@@ -13,21 +13,41 @@
 </head>
 
 <body>
-    <div class="create-conversation-wrapper">
+    <div class="chat-container">
         <div class="header">Bobo Chat</div>
+        <div class="main">
+            <div class="aside-left">
+                <div class="create-conversation">
+                    <button class="btn cursor-pointer" id="create-conversation">+ New conversation</button>
+                </div>
+                <div class="list-conversations"></div>
+            </div>
+            <div class="conversation-detail">
+                <div class="conversation-tilte"></div>
+                <div class="list-message">
+                </div>
+                <form id="send-message-form">
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Type a message" autocomplete="off" name="message">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="aside-right">
+                <div class="list-users">
+                    <div class="user-email">adasf@gmail.com</div>
+                    <div class="user-email">adaasdddddddddddddddddddddddddddddddddddddddddddddddddddsf2@gmail.com</div>
+                </div>
+                <form class="mt-1" id="add-user-form">
+                    <div class="input-wrapper">
+                        <input type="text" name="email" placeholder="Friend email">
+                        <div class="error" id="email-error"></div>
+                    </div>
+                    <button class="btn">Add</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <form id="create-conversation-form" style="width: 60%;margin: auto;margin-top: 20px;">
-        <h4>Create a new conversation</h4>
-        <div class="input-wrapper">
-            <input type="text" placeholder="Conversation title" name="title">
-            <div class="error" id="create-conversation-title-error"></div>
-        </div>
-        <div class="input-wrapper">
-            <input type="text" placeholder="Friend email" name="email">
-            <div class="error" id="create-conversation-email-error"></div>
-        </div>
-        <button class="btn">Save</button>
-        <button class="btn btn-bg-light" type="button" id="redirect-to-chat">Cancel</button>
-    </form>
 </body>
+
 </html>

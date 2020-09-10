@@ -29,7 +29,7 @@
 }
 .main .list-message {
     flex-grow: 1;
-    overflow-y: scroll;
+    overflow: auto;
 }
 #send-message-form {
     position: relative;
@@ -97,4 +97,16 @@
 }
 .chat-container .aside-left .list-conversations .conversation.current {
     background: #dbdbdb;
+}
+.chat-container .aside-right {
+    border-left: 1px solid #dbdbdb;
+    width: 15%;
+    padding: 10px;
+}
+.chat-container .aside-right .user-email {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.conversation-detail {
+    width: 70%;
 }

@@ -72,6 +72,17 @@ component.chatPage = `
             </div>
         </form>
     </div>
+    <div class="aside-right">
+        <div class="list-users">
+        </div>
+        <form class="mt-1" id="add-user-form">
+            <div class="input-wrapper">
+                <input type="text" name="email" placeholder="Friend email">
+                <div class="error" id="email-error"></div>
+            </div>
+            <button class="btn">Add</button>
+        </form>
+    </div>
 </div>
 </div>
 `

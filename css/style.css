@@ -22,3 +22,6 @@
     background: transparent;
     color: #333;
 }
+.mt-1 {
+    margin-top: 1rem !important;
+}

@@ -59,6 +59,15 @@ view.setActiveScreen = (screenName, fromCreateConversation = false) => {
                 model.getConversations()
                 model.listenConversationChange()
             }
+            const addUser = document.getElementById('add-user-form')
+            addUser.addEventListener('submit', (e) => {
+                e.preventDefault()
+                const data = addUser.email.value
+                controller.addUser(data)
+                addUser.email.value = ''
+                view.showConversations()
+                view.showCurrentConversation()
+            })
             break;
         case 'createConversationPage':
             document.getElementById('app').innerHTML = component.createConversationPage
@@ -103,8 +112,12 @@ view.showCurrentConversation = () => {
     // document.querySelector('.conversation-title').innerText = model.currentConversation.title
     document.getElementsByClassName('conversation-tilte')[0].innerText = model.currentConversation.title
     document.querySelector('.list-message').innerHTML = ''
+    document.querySelector('.list-users').innerHTML = ''
     for (message of model.currentConversation.messages) {
         view.addMessage(message)
+    }
+    for (user of model.currentConversation.users) {
+        view.addUser(user)
     }
 }
 view.scrollToEnd = () => {
@@ -133,6 +146,12 @@ view.addConversation = (conversation) => {
         view.showCurrentConversation()
         document.querySelector('.conversation.current').classList.remove('current')
         conversationWrapper.classList.add('current')
-        console.log(model.currentConversation.id)
     })
+}
+view.addUser = (user) => {
+    const addWrapper = document.createElement('div')
+    addWrapper.classList.add('user-email')
+    addWrapper.title = user
+    addWrapper.innerHTML = user
+    document.querySelector('.list-users').appendChild(addWrapper)
 }
